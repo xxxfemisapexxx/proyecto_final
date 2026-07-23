@@ -1,4 +1,6 @@
-CREATE OR REPLACE MATERIALIZED VIEW proyecto_final_dmc.${gold_schema}.dim_tiempo
+
+
+CREATE OR REFRESH MATERIALIZED VIEW proyecto_final_dmc.${gold_schema}.dim_tiempo
 COMMENT "Dimension de tiempo, con columnas derivadas para mayor analisis"
 TBLPROPERTIES ('quality' = 'gold')
 AS
