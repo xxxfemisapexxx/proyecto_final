@@ -1,0 +1,21 @@
+resources:
+  jobs:
+    Script_create:
+      name: Script_create
+      tasks:
+        - task_key: script_create
+          notebook_task:
+            notebook_path: Script/script_create_ddl
+            source: GIT
+        - task_key: proyecto_final
+          depends_on:
+            - task_key: script_create
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.proyecto_final.id}
+      git_source:
+        git_url: https://github.com/xxxfemisapexxx/proyecto_final.git
+        git_provider: gitHub
+        git_branch: main
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

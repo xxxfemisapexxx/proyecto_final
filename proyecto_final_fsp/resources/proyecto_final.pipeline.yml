@@ -1,0 +1,20 @@
+resources:
+  pipelines:
+    proyecto_final_pipeline:
+      name: proyecto_final_pipeline
+      configuration:
+        bronze_schema: ${var.bronze_schema}
+        silver_schema: ${var.silver_schema}
+        gold_schema: ${var.gold_schema}
+      libraries:
+        - glob:
+            include: ../src/proyecto_final_pipeline/transformations/**
+
+      schema: landing
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: proyecto_final_dmc
+      serverless: true
+      root_path: ../src/proyecto_final_pipeline
