@@ -59,7 +59,7 @@ def fact_detalle_pedidos():
         #F.col("p.fecha_pedido"),
         F.col("t.id_tiempo").alias("date_key"), 
         F.col("dp.cantidad").alias("cantidad"),
-        F.col("dp.precio_unitario").alias("precio"),
+        F.col("dp.precio_unitario").alias("precio_unitario"),
         F.col("dp.descuento").alias("descuento"),
         #F.col("p.total_pedido"),
         (

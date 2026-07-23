@@ -10,9 +10,9 @@ EMAIL_REGEX = r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
 
 @dp.view(name="vw_clientes_preparados")
 def clientes_silver():
-    df_bronze = spark.readStream.table(f"proyecto_final_dmc.{spark.conf.get('bronze_schema')}.clientes_raw")
+    df_silver_clientes = spark.readStream.table(f"proyecto_final_dmc.{spark.conf.get('bronze_schema')}.clientes_raw")
 
-    return df_bronze.selectExpr(
+    return df_silver_clientes.selectExpr(
         "CAST(customer_id AS INT) AS customer_id",
         "CAST(nombre AS STRING) AS nombre",
         "CAST(apellido AS STRING) AS apellido",

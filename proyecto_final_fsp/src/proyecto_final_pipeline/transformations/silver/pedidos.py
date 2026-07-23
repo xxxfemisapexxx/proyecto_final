@@ -18,8 +18,9 @@ def pedidos_silver():
         "CAST(canal_venta AS STRING) AS canal_venta",
         "CAST(estado_pedido AS STRING) AS estado_pedido",
         "CAST(total_pedido AS DECIMAL(10,2)) AS total_pedido",
-        "CAST(audit_timestamp AS TIMESTAMP) AS audit_timestamp"            
-    ).withColumn("id_tiempo", F.date_format(F.col("fecha_pedido"), "yyyyMMdd").cast("int"))
+        "CAST(audit_timestamp AS TIMESTAMP) AS audit_timestamp",
+        "CAST(date_format(fecha_pedido, 'yyyyMMdd') AS INT) AS id_tiempo"                
+    )
 
 dp.create_streaming_table(   
     name = f"proyecto_final_dmc.{spark.conf.get('silver_schema')}.pedidos",
