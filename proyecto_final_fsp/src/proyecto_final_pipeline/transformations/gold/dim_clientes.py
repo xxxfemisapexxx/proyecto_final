@@ -26,7 +26,7 @@ def v_dim_clientes_validado():
 
 # 2. TABLA GOLD: Remueve 'es_unico' para que la tabla física quede limpia
 @dp.table(
-    name=f"proyecto_final.{spark.conf.get('gold_schema')}.dim_clientes",
+    name=f"proyecto_final_dmc.{spark.conf.get('gold_schema')}.dim_clientes",
     comment="Dimension Clientes",
     table_properties={'quality': 'gold'}
 )

@@ -2,7 +2,7 @@ from pyspark import pipelines as dp
 from pyspark.sql import functions as F
 
 @dp.expect_or_fail("cantidad_no_nula", "cantidad IS NOT NULL and cantidad > 0")
-@dp.expect_or_fail("precio_no_nulo", "cantidad IS NOT NULL and cantidad > 0")
+@dp.expect_or_fail("precio_unitario_no_nulo", "precio_unitario IS NOT NULL and precio_unitario > 0")
 @dp.expect_or_fail("descuento_no_nulo", "descuento IS NOT NULL")
 @dp.expect_or_fail("descuento_no_negativo", "descuento >= 0 and descuento <= 1.00")
 @dp.expect_or_fail("monto_total_no_negativo", "monto_total >= 0")

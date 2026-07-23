@@ -25,7 +25,7 @@ def v_dim_productos_validado():
     return df_dim_clientes.withColumn("es_unico", F.count("product_id").over(window_pk))
 
 @dp.table(
-    name=f"proyecto_final.{spark.conf.get('gold_schema')}.dim_productos",
+    name=f"proyecto_final_dmc.{spark.conf.get('gold_schema')}.dim_productos",
     comment="Dimension Productos",
     table_properties={'quality': 'gold'}
 )
