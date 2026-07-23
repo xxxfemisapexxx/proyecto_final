@@ -7,11 +7,11 @@ resources:
           notebook_task:
             notebook_path: Script/script_create_ddl
             source: GIT
-        - task_key: proyecto_final
+        - task_key: proyecto_final_pipeline
           depends_on:
             - task_key: script_create
           pipeline_task:
-            pipeline_id: ${resources.pipelines.proyecto_final.id}
+            pipeline_id: ${resources.pipelines.proyecto_final_pipeline.id}
       git_source:
         git_url: https://github.com/xxxfemisapexxx/proyecto_final.git
         git_provider: gitHub
